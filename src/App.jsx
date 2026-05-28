@@ -1,12 +1,14 @@
 
-import './App.css'
+// import './App.css'
+
+import HomeFuncionario from './pages/HomeFuncionario/HomeFuncionario'
 
 function App() {
 
 
   return (
     <>
-      <h1>Home Pizzaria</h1>
+          <HomeFuncionario/>
     </>
   )
 }
