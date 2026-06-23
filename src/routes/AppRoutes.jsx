@@ -1,4 +1,5 @@
 import {
+    HashRouter,
     BrowserRouter,
     Routes,
     Route
@@ -6,11 +7,14 @@ import {
 import HomeFuncionario from "../pages/HomeFuncionario/HomeFuncionario"
 import ListarProduto from "../pages/ListarProduto/ListarProduto"
 
+// BrowserRouter : Navegação entre página utilizando a tag html <a> </a>, sempre recarrega toda a página
+// HashRouter: Navegação entre páginas utilizando a tag <Link> <Link/> do react-router-dom, carrega apenas o que é necessário
+
 
 const AppRoutes = () =>{
 
     return (
-         <BrowserRouter>
+         <HashRouter>
                <Routes>
                     
                     <Route 
@@ -24,13 +28,13 @@ const AppRoutes = () =>{
                     />
 
                     <Route 
-                      path="/pizzaria/funcionario/produtos"
                       element={<ListarProduto/>}
+                      path="/pizzaria/funcionario/produtos"
                     />
 
                </Routes>
          
-         </BrowserRouter>
+         </HashRouter>
 
     )
 }
