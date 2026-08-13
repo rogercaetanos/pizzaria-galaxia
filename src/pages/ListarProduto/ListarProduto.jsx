@@ -1,8 +1,37 @@
+
+import React,  {useState, useEffect} from "react"
+
 import MenuFuncionario from "../MenuFuncionario/MenuFuncionario"
+
+import api from "../../services/api"
 
 const ListarProduto = () => {
 
-    const arrayProdutos = [
+
+const [produtos, setProdutos] = useState([])
+
+
+useEffect(()=>{
+
+  api
+     .get("/produtos")
+     .then((response)=>{
+         // deu certo :)
+         console.log(response.data.data)
+         setProdutos(response.data.data)
+         
+     })
+     .catch((error)=>{
+        // deu ruim :(
+      console.error("Erro ao buscar a lista de produtos. ", error)
+
+     })
+
+
+},[])
+
+/*
+const arrayProdutos = [
 
         {
             id: 1,
@@ -24,7 +53,7 @@ const ListarProduto = () => {
         }
 
     ]
-
+  */
 
 
     return (
@@ -44,7 +73,7 @@ const ListarProduto = () => {
           </thead> 
           <tbody> 
 
-        { arrayProdutos.map((produto) => (  
+        { produtos.map((produto) => (  
 
             <tr key={produto.id}> 
                 <td style={{ fontSize: "13px" }}>{produto.nome}</td> 
